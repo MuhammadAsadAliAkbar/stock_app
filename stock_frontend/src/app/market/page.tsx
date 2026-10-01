@@ -53,7 +53,13 @@ export default function MarketPage() {
     );
   }
 
-  const sectors = [...new Set(stocks.map((s) => s.sector))];
+  const sectors: string[] = Array.from(
+  new Set(
+    stocks
+      .map((s) => s.sector)
+      .filter(Boolean)
+  )
+);
 
   return (
     <div className="flex min-h-screen bg-slate-950 text-white">
