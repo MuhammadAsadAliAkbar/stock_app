@@ -22,7 +22,7 @@ app.use('/api/portfolio', require('./routes/portfolioRoutes'));
 // Python market simulator proxy
 app.post('/api/market/tick', async (req, res) => {
   try {
-    const url = process.env.PYTHON_SERVICE_URL || 'http://localhost:8003';
+    const url = process.env.PYTHON_SERVICE_URL;
     const response = await fetch(`${url}/simulate-tick`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -54,7 +54,7 @@ app.post('/api/market/tick', async (req, res) => {
 
 app.get('/api/market/analytics', async (req, res) => {
   try {
-    const url = process.env.PYTHON_SERVICE_URL || 'http://localhost:8003';
+    const url = process.env.PYTHON_SERVICE_URL;
     const response = await fetch(`${url}/analytics`);
     res.json(await response.json());
   } catch {
