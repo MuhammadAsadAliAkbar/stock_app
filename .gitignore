@@ -7,3 +7,4 @@ __pycache__/
 .env.local
 *.log
 .DS_Store
+stock_frontend/.env
