@@ -1,0 +1,10 @@
+const express = require('express');
+const { getStocks, getStock, createStock, updateStock, getMarketSummary } = require('../controllers/stockController');
+const { protect, admin } = require('../middleware/auth');
+const router = express.Router();
+router.get('/', getStocks);
+router.get('/summary/market', getMarketSummary);
+router.get('/:id', getStock);
+router.post('/', protect, admin, createStock);
+router.put('/:id', protect, admin, updateStock);
+module.exports = router;
